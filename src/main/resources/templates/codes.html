@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>问卷测试</title>
+    <!---css--->
+    <link th:href="@{/css/bootstrap.css}" rel='stylesheet' type='text/css' />
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+    <!---css--->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!---js--->
+    <script th:src="@{/js/jquery-1.12.0.min.js}"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <!---js--->
+    <!--JS for animate-->
+    <link th:href="@{/css/animate.css}" rel="stylesheet" type="text/css" media="all">
+    <script th:src="@{/js/wow.min.js}"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+
+    <!---webfont--->
+    <link th:href='@{https://fonts.googleapis.com/css?family=Ubuntu+Condensed}' rel='stylesheet' type='text/css'>
+    <link th:href='@{https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic}' rel='stylesheet' type='text/css'>
+    <!---webfont--->
+    <style>
+        body {
+            background-color: rgb(228, 228, 228);
+        }
+        
+        .contain {
+            margin: 0px auto;
+            width: 1140px;
+            height: auto;
+            background-color: #fff;
+        }
+        
+        .contain h1 {
+            display: inline-block;
+            font-size: 25px;
+            color: rgb(68, 194, 164);
+        }
+        
+        .contain form {
+            display: block;
+            width: 1000px;
+            height: 1800px;
+            margin: 10px auto;
+        }
+        
+        .contain form span {
+            display: inline-block;
+            /* width: 1000px; */
+            font-size: 22px;
+            margin-top: 15px;
+            color: rgb(68, 194, 164);
+        }
+        
+        label {
+            /* display: block; */
+            font-size: 18px;
+            font-weight: normal;
+            margin-top: 10px;
+        }
+        
+        .contain form .tijiao {
+            display: block;
+            margin: 20px auto;
+            width: 130px;
+            height: 40px;
+            font-size: 25px;
+            line-height: 25px;
+            background-color: rgb(68, 194, 164);
+            border: none;
+        }
+        
+        .contain textarea {
+            resize: none;
+            width: 100%;
+            height: 250px;
+            padding: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <!---header--->
+    <div class="header-section">
+        <div class="container">
+            <div class="head-bottom">
+                <div class="logo  wow fadeInDownBig animated animated" data-wow-delay="0.4s">
+                    <h1><a href="index.html">问卷测试<span>Farming company</span></a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---header--->
+    <!---banner--->
+    <div class="banner banner1">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html" class="wow fadeInDownBig" data-wow-delay=".1s">首页 <span class="sr-only">(current)</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!---banner-->
+    <!---welcome-->
+
+    <div class="contain">
+        <p align="center" style="color: rgb(68, 194, 164);font-size: 30px;">关于农家乐消费需求的调查问卷</p>
+        <form action="" method="post">
+            <!-- <select name="nongjiale" id=""> -->
+            <ul class="li">
+                <span>1、您的性别：</span><br>
+                <input type="radio" id="nan" name="sex" value="男"> <label for="nan">男</label><input type="radio" id="nv" name="sex" value="女" style="margin-left: 50px;"><label for="nv">女</label>
+            </ul>
+            <ul class="li"><span>2、您的年龄：</span><br>
+                <input type="radio" name="age" id="age">
+                <label for="">A.18岁以下</label>
+                <input type="radio" name="age" id="age">
+                <label for="">B.18-25岁</label>
+                <input type="radio" name="age" id="age">
+                <label for="">C.25-35岁</label>
+                <input type="radio" name="age" id="age">
+                <label for="">D.35-50岁</label>
+                <input type="radio" name="age" id="age">
+                <label for="">E.50岁以上</label>
+            </ul>
+            <ul class="li"><span>3、您的职业:</span><br>
+                <input type="radio" name="zhiye" id="zhiye">
+                <label for="">A.学生</label>
+                <input type="radio" name="zhiye" id="zhiye">
+                <label for="">B.教师</label>
+                <input type="radio" name="zhiye" id="zhiye">
+                <label for="">C.医生</label>
+                <input type="radio" name="zhiye" id="zhiye">
+                <label for="">D.公务员</label>
+                <input type="radio" name="zhiye" id="zhiye">
+                <label for="">E.职员</label>
+                <input type="radio" name="zhiye" id="zhiye">
+                <label for="">F.个体</label>
+                <input type="radio" name="zhiye" id="zhiye">
+                <label for="">G.农民</label>
+                <input type="radio" name="zhiye" id="zhiye">
+                <label for="">H.已退休</label>
+
+            </ul>
+            <ul class="li"><span>4、您的月收入：</span><br>
+                <input type="radio" name="shouru" id="">
+                <label for="">A.2000以下</label>
+                <input type="radio" name="shouru" id="">
+                <label for="">B.2000-4000</label>
+                <input type="radio" name="shouru" id="">
+                <label for="">C.4000-6000</label>
+                <input type="radio" name="shouru" id="">
+                <label for="">D.6000-8000</label>
+                <input type="radio" name="shouru" id="">
+                <label for="">E.8000以上</label>
+            </ul>
+            <ul class="li"><span>5、您是否有过农家乐旅游或居住经历？</span><br>
+                <input type="radio" name="jingli" id="jingli">
+                <label for="">是</label>
+                <input type="radio" name="jingli" id="jingli">
+                <label for="">否</label>
+            </ul>
+            <ul class="li"><span>6、您一般参与的农家活动有？（多选）</span><br>
+                <input type="checkbox" name="huodong" id="huodong">
+                <label for="">A.作物采摘或购买</label>
+                <input type="checkbox" name="huodong" id="huodong">
+                <label for="">B.亲近自然 欣赏风光</label>
+                <input type="checkbox" name="huodong" id="huodong">
+                <label for="">C.享用农家美食</label>
+                <input type="checkbox" name="huodong" id="huodong">
+                <label for="">D.田间劳动</label>
+                <input type="checkbox" name="huodong" id="huodong">
+                <label for="">E.其他</label>
+
+            </ul>
+            <ul class="li"><span>7、您是否希望退休后回归田园、拥有一块土地颐养晚年？</span><br>
+                <input type="radio" name="" id="">
+                <label for="">是</label>
+                <input type="radio" name="" id="">
+                <label for="">否</label>
+            </ul>
+            <ul class="li"><span>8、如果您意在购买新鲜无污染农产品，您希望以那种方式了解农产品的质量？（多选）</span><br>
+                <input type="checkbox" name="" id="">
+                <label for="">A.眼见为实，观看作物生长的照片、直播</label>
+                <input type="checkbox" name="" id="">
+                <label for="">B.通过销售人员介绍</label>
+                <input type="checkbox" name="" id="">
+                <label for="">C.与种植的农户进行线上沟通</label>
+                <input type="checkbox" name="" id="">
+                <label for="">D.熟人介绍</label>
+                <input type="checkbox" name="" id="">
+                <label for="">E.其他</label>
+
+            </ul>
+            <ul class="li"><span>9、您倾向于体验哪种农家乐？（多选）</span><br>
+                <input type="checkbox" name="tiyan" id="">
+                <label for="">A.产品型-绿色健康无污染食品</label>
+                <input type="checkbox" name="tiyan" id="">
+                <label for="">B.服务型-享受农家服务</label>
+                <input type="checkbox" name="tiyan" id="">
+                <label for="">C.体验型-体验农耕生活</label>
+                <input type="checkbox" name="tiyan" id="">
+                <label for="">D.自然型-亲近自然风光</label>
+                <input type="checkbox" name="tiyan" id="">
+                <label for="">E.其他</label>
+
+
+            </ul>
+            <ul class="li"><span>10、您通常通过哪种方式了解农家乐？（多选）</span><br>
+
+                <input type="checkbox" name="liaojie" id="">
+                <label for="">A.朋友推荐</label><br>
+                <input type="checkbox" name="liaojie" id="">
+                <label for="">B.其他网络平台资讯</label><br>
+                <input type="checkbox" name="liaojie" id="">
+                <label for="">C.电视广播</label><br>
+                <input type="checkbox" name="liaojie" id="">
+                <label for="">D.农家乐自身平台(公众号、网站、APP等)</label><br>
+                <input type="checkbox" name="liaojie" id="">
+                <label for="">E.报刊杂志</label><br>
+                <input type="checkbox" name="liaojie" id="">
+                <label for="">F.其他</label>
+            </ul>
+            <ul class="li"><span>11、您倾向的单人单日消费金额：</span><br>
+                <input type="checkbox" name="" id="">
+                <label for="">A.100以下</label>
+                <input type="checkbox" name="" id="">
+                <label for="">B.100-300</label>
+                <input type="checkbox" name="" id="">
+                <label for="">C.300-500</label>
+                <input type="checkbox" name="" id="">
+                <label for="">D.500-1000</label>
+                <input type="checkbox" name="" id="">
+                <label for="">E.1000以上</label>
+
+            </ul>
+            <ul class="li"><span>12、您平时喜欢收集旅游照片或纪念品吗？（多选）</span><br>
+                <input type="checkbox" name="xihuan" id="">
+                <label for="">A.是的，喜欢收集图片 制作影像册</label><br>
+                <input type="checkbox" name="xihuan" id="">
+                <label for="">B.是的，喜欢写游记，整理留念</label><br>
+                <input type="checkbox" name="xihuan" id="">
+                <label for="">C.是的，喜欢收集各地纪念品</label><br>
+                <input type="checkbox" name="xihuan" id="">
+                <label for="">D.是的，喜欢分享到朋友圈等社交平台</label><br>
+                <input type="checkbox" name="xihuan" id="">
+                <label for="">E.并没有，游玩开心最重要</label>
+
+            </ul>
+            <ul class="li"><span>13、您认为农家乐有哪些需要提升的地方？（填空）</span><br>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </ul>
+            <input type="submit" value="提&nbsp交" class="tijiao">
+        </form>
+    </div>
+
+
+    <!-- typo-ends -->
+    <!-- </div> -->
+    <!---footer--->
+    <div class="footer-section">
+        <div class="container">
+            <div class="footer-grids">
+                <div class="col-md-3 footer-grid wow fadeInRight animated" data-wow-delay=".5s">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="#">服务宗旨</a></li>
+                        <li><a href="#">服务保障</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">更多</a>></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-grid wow fadeInDownBig animated" data-wow-delay=".5s">
+                    <h4>我的中心</h4>
+                    <ul>
+                        <li><a href="#">订单</a></li>
+                        <li><a href="#">收藏</a></li>
+                        <li><a href="#">足迹</a></li>
+                        <li><a href="#">积分</a></li>
+                        <li><a href="#">帮助</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-grid wow fadeInUpBig animated" data-wow-delay=".5s">
+                    <h4>入驻平台</h4>
+                    <ul>
+                        <li><a href="#">新商家入驻</a></li>
+                        <li><a href="#">审核状态</a></li>
+                        <li><a href="#">更新我的信息</a></li>
+                        <li><a href="#">寻求帮助</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-grid wow fadeInRight animated" data-wow-delay=".5s">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---footer--->
+</body>
+
+</html>

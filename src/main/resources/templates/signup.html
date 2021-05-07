@@ -1,0 +1,134 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>SignUp</title>
+</head>
+
+<body>
+<form th:action="@{/register}">
+  <div align="center">
+    <table width="47%" border="0">
+      <tr>
+        <td colspan="2">
+          <div align="center">用户注册</div>
+        </td>
+      </tr>
+      <tr>
+        <td width="28%"><div align="right">用户名：</div></td>
+        <td width="72%">
+          <div align="left">
+            <label for="username"></label>
+            <input type="text" name="username" id="username">
+          </div></td>
+      </tr>
+      <tr>
+        <td><div align="right">输入密码：</div></td>
+        <td><div align="left">
+          <label for="password"></label>
+          <input type="password" name="password" id="password">
+        </div></td>
+      </tr>
+      <tr>
+        <td><div align="right">确认密码：</div></td>
+        <td>
+          <div align="left">
+            <label for="passwordconfirm"></label>
+            <input type="password" name="passwordconfirm" id="passwordconfirm">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><div align="right">手机号：</div></td>
+        <td>
+          <div align="left">
+            <label for="phonenumber"></label>
+            <input type="text" name="phonenumber" id="phonenumber" οnkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div align="right">
+            <button type="submit" id="signup">注册</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>
+<script>
+
+    var c = document.getElementById("signup");
+
+    c.onclick=function signup(){
+
+    var username=document.getElementById("username").value;
+    var password=document.getElementById("password").value;
+    var passwordconfirm=document.getElementById("passwordconfirm").value;
+    var phonenumber=document.getElementById("phonenumber").value;
+    var re = /^\d+(?=\.{0,1}\d+$|$)/;
+    while(1){
+
+      var flag = 0;
+      if(username!==""&&password!==""&&passwordconfirm!==""&&phonenumber!==""){
+        if(username.length<4||username.length>10){
+          alert("用户名格式错误,请重新输入！");
+
+          document.getElementById("username").value="";
+          document.getElementById("username").focus();
+          flag++;
+          break;
+        }
+        if(password.length<8||password.length>16){
+          alert("密码长度不符合要求！请重新输入！");
+          flag++;
+          break;
+        }
+        if(password!==passwordconfirm){
+          alert("两次密码不同！请重新输入！");
+
+          flag++;
+
+          break;
+        }
+        if(phonenumber.length!=11){
+          alert("手机号不正确，请重新输入！");
+          document.getElementById("phonenumber").value="";
+          document.getElementById("phonenumber").focus();
+          flag++;
+          break;
+        }
+        if(!re.test(phonenumber)){
+          alert("输入不是数字,请重新输入！");
+          document.getElementById("phonenumber").value="";
+          document.getElementById("phonenumber").focus();
+          flag++;
+          break;
+        }
+        if(flag==0){
+          break;
+        }
+      }else{
+        if(username==""||password==""||passwordconfirm==""||phonenumber=="")
+        {
+          alert("请填写完整信息！");
+
+          flag=1;
+          break;
+        }
+      }
+    }
+    if(flag==0){
+      alert("所有信息正确！");
+      alert("请核对您的信息\n"+"用户名："+username+"\n密码："+password+"\n手机号:"+phonenumber);
+
+    }else{
+      alert("请检查您的信息，重新输入！");
+      return false;
+    }
+  }
+
+</script>
+</body>
+</html>

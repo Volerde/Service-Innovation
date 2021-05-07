@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>“桃花源”田园生活共享平台</title>
+    <!---css--->
+    <link th:href="@{/css/bootstrap.css}" rel='stylesheet' type='text/css' />
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+    <!---css--->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!---js--->
+    <script th:src="@{/js/jquery-1.12.0.min.js}"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <!---js--->
+    <!--JS for animate-->
+    <link th:href="@{/css/animate.css}" rel="stylesheet" type="text/css" media="all">
+    <script th:src="@{/js/wow.min.js}"></script>
+    <script>
+        new WOW().init();
+        window.onload=function (){
+            if (document.getElementById("checkpoint").innerText!==''){
+                document.getElementById("login").remove();
+            }else {
+                document.getElementById("checkli").remove();
+            }
+        }
+    </script>
+    <!--//end-animate-->
+
+    <!---webfont--->
+    <link th:href='@{https://fonts.googleapis.com/css?family=Ubuntu+Condensed}' rel='stylesheet' type='text/css'>
+    <link th:href='@{https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic}' rel='stylesheet' type='text/css'>
+    <!---webfont--->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style_common.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style9.css}" />
+</head>
+
+<body>
+    <!---header--->
+    <div class="header-section">
+        <div class="container">
+            <div class="head-bottom">
+                <div class="logo  wow fadeInDownBig animated animated" data-wow-delay="0.4s">
+                    <img th:src="@{/images/logo.png}" alt="" width="70px ">
+                    <h1><a href="index.html">桃花源<span> &nbsp;相约另一种美好</span></a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---header--->
+    <!---banner--->
+
+    <div class="banner">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="index.html" class="wow fadeInDownBig" data-wow-delay=".1s">首页 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="about.html" class="wow fadeInDownBig" data-wow-delay=".2s">农家乐信息</a></li>
+                            <li><a href="services.html" class="wow fadeInDownBig" data-wow-delay=".4s">入驻网站&nbsp;</a></li>
+                            <li><a href="codes.html" class="wow fadeInDownBig" data-wow-delay=".7s">问卷测试&nbsp;</a></li>
+                            <li id="checkli"><a id="checkpoint" href="gallery.html" class="wow fadeInDownBig" data-wow-delay=".6s" th:text="${session.loginUser}"></a></li>
+                            <li id="login"><a href="login.html" class="wow fadeInDownBig" data-wow-delay=".9s">登录&nbsp;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="banner-center">
+                <marquee>
+                </marquee>
+            </div>
+
+        </div>
+    </div>
+    <!---banner-->
+    <!---welcome-->
+    <div class="content">
+        <div class="welcome-section">
+            <div class="container">
+                <div class="banner-bottom">
+                    <div class="banner-grids">
+                        <div class="col-md-4 banner-grid wow fadeInLeft animated" data-wow-delay=".5s">
+                            <h4>土地租赁</h4>
+                            <div class="ban1">
+                                <div class="ban-images  view fourth-effect">
+                                    <img th:src="@{/images/b1.jpg}" class="img-responsive" alt="" />
+                                    <div class="mask"></div>
+                                </div>
+                                <p>土地供求交易平台，满足你的田园梦。</p>
+                                <a href="about.html" class="button hvr-wobble-bottom">更多</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 banner-grid wow fadeInDownBig" data-wow-delay=".4s">
+                            <h4>短期旅行</h4>
+                            <div class="ban1">
+                                <div class="ban-images  view fourth-effect">
+                                    <img th:src="@{/images/b2.jpg}" class="img-responsive" alt="" />
+                                    <div class="mask"></div>
+                                </div>
+                                <p>体验乡村生活，放松自我，短期旅行</p>
+                                <a href="about.html" class="button hvr-wobble-bottom">更多</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 banner-grid wow fadeInRight animated" data-wow-delay=".5s">
+                            <h4>定制农业</h4>
+                            <div class="ban1">
+                                <div class="ban-images  view fourth-effect">
+                                    <img th:src="@{/images/b1.jpg}" class="img-responsive" alt="" />
+                                    <div class="mask"></div>
+                                </div>
+                                <p>定制属于你的农作物，专人种植，可实时观看。</p>
+                                <a href="about.html" class="button hvr-wobble-bottom">更多</a>
+                            </div>
+                        </div>
+                        <!-- <div class="clearfix"></div> -->
+                    </div>
+                </div>
+                <h2>最新入驻商家</h2>
+                <div class="welcome-grids">
+                    <div class="col-md-3 welcome-grid wow fadeInLeft animated" data-wow-delay=".5s">
+                        <div class="welcome-text">
+                            <h4>白云蓬莱仙界</h4>
+                            <p>蓬莱仙界·白云休闲农业旅游景区，位于贵阳市白云区牛场乡，距市区25公里。景区是国家AAAA级景区、全国休闲农业与乡村旅游示范点之一，也是以现代农业展示为基本功能，集生态农业、循环农业、精致农业、旅游观光休闲农业为一体的农业旅游区。</p>
+                        </div>
+                        <div class="welcome-icon">
+                            <img th:src="@{/images/i1.png}">
+                        </div>
+                    </div>
+                    <div class="col-md-3 welcome-grid wow fadeInDownBig animated" data-wow-delay=".5s">
+                        <div class="welcome-text">
+                            <h4>阳朔月圆山庄</h4>
+                            <p>桂林阳朔月圆山庄位于桂林阳朔十里画廊景区，背靠月亮山，面朝大榕树，左临遇龙河，右临聚龙潭景区，庄园为经典田园单层别墅结构，全生态观光庄园，四合院客房布局，头顶蓝天白云齐恣意。</p>
+                        </div>
+                        <div class="welcome-icon">
+                            <img src="images/i2.png">
+                        </div>
+                    </div>
+                    <div class="col-md-3 welcome-grid wow fadeInUpBig animated" data-wow-delay=".5s">
+                        <div class="welcome-text">
+                            <h4>崇明人家农家乐</h4>
+                            <p>崇明人家农家乐位于上海的后花园崇明岛，毗邻华东地区的平原森林公园――东平国家森林公园，地段优越，周边环境宁静清幽。</p>
+                        </div>
+                        <div class="welcome-icon">
+                            <img src="images/i3.png">
+                        </div>
+                    </div>
+                    <div class="col-md-3 welcome-grid wow fadeInRight animated" data-wow-delay=".5s">
+                        <div class="welcome-text">
+                            <h4>富阳天地生态休闲农庄</h4>
+                            <p>富阳市天地生态休闲农庄有限公司旗下的富阳天地生态农庄位于富阳市富春街道青云桥村羊坑垅，交通便捷、320国道环线在农庄的入口处穿过，距离富阳市区5公里、杭州市区38公里，上海过来3小时左右到达。</p>
+                        </div>
+                        <div class="welcome-icon">
+                            <img src="images/i4.png">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!---welcome-->
+        <!---product-->
+        <div class="product-section">
+            <div class="container">
+                <h3>热门商家</h3>
+                <div class="product-grids">
+                    <div class="col-md-6 product-grid wow fadeInLeft animated" data-wow-delay=".5s">
+                        <div class="product-left">
+                            <img th:src="@{/images/p.jpg}" class="img-responsive" alt="" />
+                        </div>
+                        <div class="product-right">
+                            <h4>白云蓬莱仙界</h4>
+                            <p>景区有农作物新品种展示园、特色果树品种展示园、精品茶品种与茶文化展示园、奇瓜异果长廊、农耕文化馆、布依文化馆、神仙文化馆等旅游景点。</p>
+                            <a href="gallery.html">
+                                <i class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true">更多</i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-6 product-grid wow fadeInRight animated" data-wow-delay=".5s">
+                        <div class="product-left">
+                            <img th:src="@{/images/p1.jpg}" class="img-responsive" alt="" />
+                        </div>
+                        <div class="product-right">
+                            <h4>阳朔月圆山庄（五星级）</h4>
+                            <p>庄园林有200亩，有一年四季的自摘果园，共海天山水之色；天然氧吧，享清新徜徉之气；观鸟胜地，闻鸟语盈耳之乐；植物观园，览绿意盎然之美；几把藤椅，一米阳光；饮一盏新绿，染满身清香。</p>
+                            <a href="gallery.html"><i class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true">更多</i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="product-grids">
+                    <div class="col-md-6 product-grid1 wow fadeInLeft animated" data-wow-delay=".5s">
+                        <div class="product1-left">
+                            <h4>崇明人家农家乐</h4>
+                            <p>崇明人家农家乐位于上海的后花园崇明岛，毗邻华东地区的平原森林公园――东平国家森林公园，地段优越，周边环境宁静清幽。</p>
+                            <a href="gallery.html"><i class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true">更多</i></a>
+                        </div>
+                        <div class="product1-right">
+                            <img th:src="@{/images/p2.jpg}" class="img-responsive" alt="" />
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-6 product-grid1 wow fadeInRight animated" data-wow-delay=".5s">
+                        <div class="product1-left">
+                            <h4>富阳天地生态休闲农庄</h4>
+                            <p>农庄三面环山、南面临水，是个山清水秀的世外桃源，有果树林300余亩，分别种植有茶叶、桃、李、杨梅、梨、柑橘、葡萄、柿子、板栗、猕猴桃、樱桃等；还有毛竹林80余亩，无公害蔬菜基地20亩，草莓种植基地20亩。</p>
+                            <a href="gallery.html"><i class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true">更多</i></a>
+                        </div>
+                        <div class="product1-right">
+                            <img th:src="@{/images/p3.jpg}" class="img-responsive" alt="" />
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!---product-->
+        <!---news--->
+        <div class="news-section">
+            <div class="container">
+                <h3>热门分享</h3>
+                <div class="news-grids wow fadeInRight animated" data-wow-delay=".5s">
+                    <div class="col-md-4 new-grid">
+                        <div id="box" class="burst-circle teal">
+                            <div class="caption"></div>
+                            <img th:src="@{/images/n1.jpg}" class="img-responsive" />
+                            <h4>桃花源</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-8 new-grid1 hvr-bounce-to-right">
+                        <h5><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> 25 November 2016 </h5>
+                        <h4>游记标题</h4>
+                        <p>游记摘要</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="news-grids wow fadeInLeft animated" data-wow-delay=".5s">
+                    <div class="col-md-4 new-grid">
+                        <div id="box" class="burst-circle teal">
+                            <div class="caption"></div>
+                            <img th:src="@{/images/n2.jpg}" class="img-responsive" />
+                            <h4>桃花源</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-8 new-grid1 hvr-bounce-to-right">
+                        <h5><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> 25 November 2016 </h5>
+                        <h4>游记标题</h4>
+                        <p>游记摘要</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="news-grids wow fadeInRight animated" data-wow-delay=".5s">
+                    <div class="col-md-4 new-grid">
+                        <div id="box" class="burst-circle teal">
+                            <div class="caption"></div>
+                            <img th:src="@{/images/n3.jpg}" class="img-responsive" />
+                            <h4>桃花源</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-8 new-grid1 hvr-bounce-to-right">
+                        <h5><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> 25 November 2016 </h5>
+                        <h4>游记标题</h4>
+                        <p>游记摘要</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="news-grids wow fadeInLeft animated" data-wow-delay=".5s">
+                    <div class="col-md-4 new-grid">
+                        <div id="box" class="burst-circle teal">
+                            <div class="caption"></div>
+                            <img th:src="@{/images/n4.jpg}" class="img-responsive" />
+                            <h4>桃花源</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-8 new-grid1 hvr-bounce-to-right">
+                        <h5><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> 25 November 2016 </h5>
+                        <h4>游记标题</h4>
+                        <p>游记摘要</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!---news--->
+        <!---Testimonials--->
+        <!-- <div class="testimonials-section">
+			<div class="container">
+				<h3>Testimonial</h3>
+				<div class="testimonials-grids">
+					<div class="col-md-2 testimonials-grid1 wow fadeInRight animated" data-wow-delay=".5s">
+						<img src="images/t1.png" class="img-responsive" alt=""/>
+					</div>
+					<div class="col-md-10 testimonials-grid wow fadeInLeft animated" data-wow-delay=".5s">
+						<p>Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus carborundum e pluribus unum. Defacto lingo est igpay atinlay. Marquee selectus non provisio incongruous feline nolo contendre. Gratuitous octopus niacin, sodium glutimate. Quote meon an estimate et non interruptus stadium.</p>
+						<h5>Antonio Brightman</h5>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div> -->
+        <!---Testimonials--->
+    </div>
+    <!---footer--->
+    <div class="footer-section">
+        <div class="container">
+            <div class="footer-grids">
+                <div class="col-md-3 footer-grid wow fadeInRight animated" data-wow-delay=".5s">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="#">服务宗旨</a></li>
+                        <li><a href="#">服务保障</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-grid wow fadeInDownBig animated" data-wow-delay=".5s">
+                    <h4>我的中心</h4>
+                    <ul>
+                        <li><a href="#">订单</a></li>
+                        <li><a href="#">收藏</a></li>
+                        <li><a href="#">足迹</a></li>
+                        <li><a href="#">积分</a></li>
+                        <li><a href="#">帮助</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-grid wow fadeInUpBig animated" data-wow-delay=".5s">
+                    <h4>入驻平台</h4>
+                    <ul>
+                        <li><a href="#">新商家入驻</a></li>
+                        <li><a href="#">审核状态</a></li>
+                        <li><a href="#">更新我的信息</a></li>
+                        <li><a href="#">寻求帮助</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-grid wow fadeInRight animated" data-wow-delay=".5s">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---footer--->
+</body>
+
+</html>

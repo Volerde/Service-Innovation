@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>在线咨询</title>
+	<!---css--->
+	<link th:href="@{/css/bootstrap.css}" rel='stylesheet' type='text/css' />
+	<link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+	<!---css--->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!---js--->
+	<script th:src="@{/js/jquery-1.12.0.min.js}"></script>
+	<script th:src="@{/js/bootstrap.js}"></script>
+	<!---js--->
+	<!--JS for animate-->
+	<link th:href="@{/css/animate.css}" rel="stylesheet" type="text/css" media="all">
+	<script th:src="@{/js/wow.min.js}"></script>
+	<script>
+		new WOW().init();
+	</script>
+	<!--//end-animate-->
+
+	<!---webfont--->
+	<link th:href='@{https://fonts.googleapis.com/css?family=Ubuntu+Condensed}' rel='stylesheet' type='text/css'>
+	<link th:href='@{https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic}' rel='stylesheet' type='text/css'>
+<!---webfont--->
+</head>
+<body>
+	<!---header--->
+		<div class="header-section">
+			<div class="container">
+				<div class="head-bottom">
+					<div class="logo  wow fadeInDownBig animated animated" data-wow-delay="0.4s">
+						<h1><a href="index.html">入驻网站<span>Farming company</span></a></h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!---header--->
+		<!---banner--->
+		<div class="banner banner1">
+			<div class="container">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li><a href="index.html" class="wow fadeInDownBig" data-wow-delay=".1s">首页 <span class="sr-only">(current)</span></a></li>
+								<li><a href="application.html" class="wow fadeInDownBig" data-wow-delay=".2s">申请入驻</a></li>
+								<li><a href="services.html" class="wow fadeInDownBig" data-wow-delay=".4s">审核状态</a></li>
+								<li><a href="update.html" class="wow fadeInDownBig" data-wow-delay=".6s">更新信息</a></li>
+								<li><a href="help.html" class="wow fadeInDownBig" data-wow-delay=".7s">在线咨询</a></li>
+								<!-- <li><a href="contact.html" class="wow fadeInDownBig" data-wow-delay=".9s">Contact</a></li> -->
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+<!---banner-->
+	<!---welcome-->
+	<div class="content">
+	<!-- services -->
+	<div class="content">
+		<div class="mail">
+			<div class="container">
+				<h2>在线咨询</h2>
+				<div class="mail-grids">
+					<div class="col-md-6 mail-left wow fadeInRight animated" data-wow-delay=".5s">
+						<h4>Contact Info</h4>
+						<p>Voluptatem accusantium doloremque laudantium.</p>
+						<ul>
+							<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone<span>+8 (213) 746 820 82</span></li>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email<a href="mailto:info@example.com">info@example.com</a></li>
+						</ul>
+						<ul>
+							<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address<span>PO Box 7784 Diamonds street, Los Angeles, California, US.</span></li>
+						</ul>
+					</div>
+					<div class="col-md-6 mail-left wow fadeInLeft animated" data-wow-delay=".5s">
+						<h4>Send a Message</h4>
+						<p>Voluptatem accusantium doloremque laudantium.</p>
+						<form>
+							<input type="text" placeholder="Name" required=" ">
+							<input type="email" placeholder="Email" required=" ">
+							<div class="clearfix"> </div>
+							<input type="text" placeholder="Subject" required=" ">
+							<textarea placeholder="Type Your Text Here...." required=" "></textarea>
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		</div>
+	<!---footer--->
+	<div class="footer-section">
+		<div class="container">
+		<div class="footer-grids">
+			<div class="col-md-3 footer-grid wow fadeInRight animated" data-wow-delay=".5s">
+				<h4>关于</h4>
+				<ul>
+					<li><a href="#">服务宗旨</a></li>				
+					<li><a href="#">服务保障</a></li>
+					<li><a href="#">意见反馈</a></li>
+					<li><a href="#">更多</a>></li>
+				</ul>
+			</div>
+			<div class="col-md-3 footer-grid wow fadeInDownBig animated" data-wow-delay=".5s">
+				<h4>我的中心</h4>
+				<ul>
+					<li><a href="#">订单</a></li>
+					<li><a href="#">收藏</a></li>
+					<li><a href="#">足迹</a></li>
+					<li><a href="#">积分</a></li>
+					<li><a href="#">帮助</a></li>
+					<li><a href="#">更多</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 footer-grid wow fadeInUpBig animated" data-wow-delay=".5s">
+			<h4>入驻平台</h4>
+				<ul>
+					<li><a href="#">新商家入驻</a></li>
+					<li><a href="#">审核状态</a></li>
+					<li><a href="#">更新我的信息</a></li>
+					<li><a href="#">寻求帮助</a></li>
+					<li><a href="#">在线咨询</a></li>
+					<li><a href="#">更多</a></li>		
+				</ul>
+			</div>
+			<div class="col-md-3 footer-grid wow fadeInRight animated" data-wow-delay=".5s">
+				<h4>帮助中心</h4>
+				<ul>
+					<li><a href="#">常见问题</a></li>
+					<li><a href="#">设置</a></li>
+					<li><a href="#">更多</a></li>
+				</ul>
+			</div>
+		</div>
+		</div>
+	</div>				
+	<!---footer--->
+</body>
+</html>
