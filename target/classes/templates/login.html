@@ -231,7 +231,7 @@
         <div class="bottom">
             <form th:action="@{/userlogin}">
                 <div class="zhang" style="margin-left: 75px;">
-<!--                    <p style="color: red;" th:text="${msg}"> </p>-->
+                    <p style="color: red;" th:text="${session.msg}"> </p>
                     <!-- <div class="zhanghao">账&nbsp号:</div> -->
                     <input type="text" name="yong" id="yong" required="required" placeholder="用户名">
 <!--                    <input type="text" name="yong" id="yong" required="required" placeholder="QQ/微信/用户名">-->
