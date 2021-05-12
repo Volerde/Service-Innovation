@@ -67,7 +67,7 @@
             transform: translate(-50%, 50%);
             /* margin: 100px auto; */
             width: 450px;
-            height: 350px;
+            height: 370px;
             /* border: 1px solid #fff; */
             /* background-color: rgba(149, 148, 145, 0.274); */
             background-color: #fff;
@@ -96,7 +96,7 @@
             border-bottom: 1px solid rgb(141, 128, 128);
             width: 300px;
             height: 42px;
-            margin-top: 40px;
+            margin-top: 10px;
         }
         
         .box .mi {
@@ -230,17 +230,19 @@
 
         <div class="bottom">
             <form th:action="@{/userlogin}">
+                <div style="margin: 20px 0 0 0;">
+                    <p id="function" align="center" style="color: red;" th:text="${session.msglogin}"></p>
+                </div>
+
                 <div class="zhang" style="margin-left: 75px;">
-                    <p style="color: red;" th:text="${session.msg}"> </p>
-                    <!-- <div class="zhanghao">账&nbsp号:</div> -->
+<!--                     <div class="zhanghao">账&nbsp号:</div>-->
                     <input type="text" name="yong" id="yong" required="required" placeholder="用户名">
 <!--                    <input type="text" name="yong" id="yong" required="required" placeholder="QQ/微信/用户名">-->
                 </div>
-
                 <br>
+
                 <div class="mi" style="margin-left: 75px;">
                     <!-- <div class="mima">密&nbsp码:</div> -->
-                    <span></span>
                     <input type="password" name="mima" id="mima" required="required" placeholder="8-16位有效字符">
                 </div>
 
@@ -254,16 +256,9 @@
         </div>
     </div>
     <script th:src="@{https://cdn.jsdelivr.net/npm/vue/dist/vue.js}"></script>
-
-<!--    <script>-->
-<!--        var bodyEle = document.body;-->
-<!--        var box = document.getElementById("boxbox");-->
-<!--        bodyEle.onclick = function() {-->
-<!--            box.style.display = "block";-->
-<!--            // alert('5237157');-->
-<!--            box.style.transition = "all 1s ease .3s";-->
-<!--        }-->
-<!--    </script>-->
+    <script>
+        document.getElementById("function").
+    </script>
 </body>
 
 </html>

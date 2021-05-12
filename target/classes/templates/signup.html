@@ -3,6 +3,16 @@
 <head>
   <meta charset="utf-8">
   <title>SignUp</title>
+  <style>
+    body {
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+      position: relative;
+      background: #fff url(images/bg9.png) no-repeat fixed center;
+      background-size: cover;
+    }
+  </style>
 </head>
 
 <body>
@@ -12,7 +22,7 @@
       <tr>
         <td colspan="2">
           <div align="center">用户注册</div>
-          <p style="color: red" align="center" th:text="${session.msg}"></p>
+          <p style="color: red" align="center" th:text="${session.msgregister}"></p>
         </td>
       </tr>
       <tr>
@@ -52,7 +62,7 @@
         <td>
           <div align="right">
             <button type="submit" id="signup">注册</button>
-            <p><a th:href="@{/login.html}">返回</a></p>
+            <button><a th:href="@{/login.html}">返回</a></button>
           </div>
         </td>
       </tr>

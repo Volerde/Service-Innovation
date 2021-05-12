@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
+import java.util.Collection;
 import java.util.Objects;
 
 @Controller
@@ -25,7 +26,7 @@ public class UserController {
     public String register(@RequestParam("username")String username, @RequestParam("password") String password, @RequestParam("phonenumber") String phonenumber,HttpSession session){
         User user = userMapper.selectUser(username);
         if (user!=null){
-            session.setAttribute("msg","注册失败，该用户已存在");
+            session.setAttribute("msgregister","注册失败，该用户已存在");
             return "redirect:/signup.html";
         }
 
@@ -44,7 +45,7 @@ public class UserController {
     public String login(@RequestParam("yong") String yong,@RequestParam("mima") String mima,HttpSession session) {
         User user = userMapper.selectUser(yong);
         if (user==null){
-            session.setAttribute("msg","登录失败，该用户不存在");
+            session.setAttribute("msglogin","登录失败，该用户不存在");
             return "redirect:/login.html";
         }
 
@@ -52,7 +53,7 @@ public class UserController {
             session.setAttribute("loginUser",yong);
             return "redirect:/index";
         }else {
-            session.setAttribute("msg","登录失败，密码错误");
+            session.setAttribute("msglogin","登录失败，密码错误");
             return "redirect:/login.html";
         }
     }
