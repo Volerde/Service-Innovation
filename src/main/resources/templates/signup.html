@@ -1,146 +1,288 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <meta charset="utf-8">
-  <title>SignUp</title>
-  <style>
-    body {
-      /* display: flex;
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“桃花源”注册</title>
+    <link href="css/base.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!---css--->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!---js--->
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <!---js--->
+    <!--JS for animate-->
+    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+
+    <!---webfont--->
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!---webfont--->
+    <link rel="stylesheet" type="text/css" href="css/style_common.css" />
+    <link rel="stylesheet" type="text/css" href="css/style9.css" />
+
+    <style>
+        body {
+            /* display: flex;
       justify-content: center;
       align-items: center; */
-      position: relative;
-      background: #fff url(images/bg9.png) no-repeat fixed center;
-      background-size: cover;
-    }
-  </style>
+            position: relative;
+            background: #fff url(images/bg9.png) no-repeat fixed center;
+            background-size: cover;
+        }
+        
+        .box {
+            transition: 1s all;
+            /* -webkit-transition: 1s all; */
+            margin: -570px auto;
+            width: 800px;
+            height: auto;
+            background-color: rgba(255, 255, 255, 0.507);
+            /* display: none; */
+        }
+        
+        form .title {
+            display: inline-block;
+            margin: 0 auto;
+            margin-top: 40px;
+            width: 100%;
+            height: 50px;
+            line-height: 45px;
+            font-size: 45px;
+            color: rgb(23, 194, 164);
+            border-bottom: black 1px solid;
+        }
+        
+        form table tr td {
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        form table tr td div {
+            display: inline-block;
+            height: 30px;
+            font-size: 20px;
+            line-height: 20px;
+            color: rgb(92, 97, 96);
+        }
+        
+        form table tr td div input {
+            display: inline-block;
+            /* border: rgba(128, 128, 128, 0.712) 1px solid; */
+            padding-left: 1em;
+            outline: none;
+            border: none;
+            height: 30px;
+            border-radius: 8px;
+            background-color: rgba(214, 226, 220, 0.787);
+            font-size: 20px;
+        }
+        
+        form table tr td div .signup {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+            width: 120px;
+            height: 30px;
+            /* border: rgba(90, 102, 94, 0.733) 1px solid; */
+            border: none;
+            border-radius: 5px;
+            color: rgba(255, 255, 255, 0.767);
+            background-color: rgb(23, 194, 164, 0.85);
+        }
+        
+        input::placeholder {
+            font-size: 25px;
+            padding: 1em;
+        }
+    </style>
 </head>
 
 <body>
-<form th:action="@{/register}">
-  <div align="center">
-    <table width="47%" border="0">
-      <tr>
-        <td colspan="2">
-          <div align="center">用户注册</div>
-          <p style="color: red" align="center" th:text="${session.msgregister}"></p>
-        </td>
-      </tr>
-      <tr>
-        <td width="28%"><div align="right">用户名：</div></td>
-        <td width="72%">
-          <div align="left">
-            <label for="username"></label>
-            <input type="text" name="username" id="username">
-          </div></td>
-      </tr>
-      <tr>
-        <td><div align="right">输入密码：</div></td>
-        <td><div align="left">
-          <label for="password"></label>
-          <input type="password" name="password" id="password">
-        </div></td>
-      </tr>
-      <tr>
-        <td><div align="right">确认密码：</div></td>
-        <td>
-          <div align="left">
-            <label for="passwordconfirm"></label>
-            <input type="password" name="passwordconfirm" id="passwordconfirm">
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td><div align="right">手机号：</div></td>
-        <td>
-          <div align="left">
-            <label for="phonenumber"></label>
-            <input type="text" name="phonenumber" id="phonenumber" οnkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div align="right">
-            <button type="submit" id="signup">注册</button>
-            <button><a th:href="@{/login.html}">返回</a></button>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-</form>
-<script>
+    <!--顶部标题 -->
+    <div class="header-section">
+        <div class="container">
+            <div class="head-bottom">
+                <div class="logo  wow fadeInDownBig animated animated" data-wow-delay="0.4s">
+                    <img src="images/logo.png" alt="" width="70px ">
+                    <h1><a href="index.html">桃花源<span> &nbsp;相约另一种美好</span></a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 注册框架 -->
+    <div class="box" id="boxbox">
+        <form th:action="@{/register}">
+            <div align="center">
+                <table width="47%" border="0">
+                    <tr>
+                        <td style="display: inline;">
+                            <div align="center" class="title" id="tit">用户注册</div>
+                            <hr>
+                            <p style="color: red" align="center" th:text="${session.msgregister}"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%">
+                            <div align="left">用户名：</div>
+                        </td>
+                        <td width="70%">
+                            <div align="left">
+                                <label for="username"></label>
+                                <input type="text" name="username" id="username">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%">
+                            <div align="right">输入密码：</div>
+                        </td>
+                        <td>
+                            <div align="left">
+                                <label for="password"></label>
+                                <input type="password" name="password" id="password">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%">
+                            <div align="right">确认密码：</div>
+                        </td>
+                        <td>
+                            <div align="left">
+                                <label for="passwordconfirm"></label>
+                                <input type="password" name="passwordconfirm" id="passwordconfirm">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%">
+                            <div align="right">手机号：</div>
+                        </td>
+                        <td>
+                            <div align="left">
+                                <label for="phonenumber"></label>
+                                <input type="text" name="phonenumber" id="phonenumber" οnkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="display: block;">
+                            <div style="width: 100%;height: 30px;">
+                                <button class="signup" type="submit" id="signup">注&nbsp册</button>
 
-    var c = document.getElementById("signup");
+                                <button style="
+                                display:block;float: left;border: none;background-color: rgba(255, 255, 255, 0.267);font-size: 17px;margin-bottom: 5px;">
+                                  <a th:href="@{/login.html}" style="color: rgb(87, 83, 83);">返&nbsp&nbsp回</a>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
 
-    c.onclick=function signup(){
+    <script>
+        var c = document.getElementById("signup");
 
-    var username=document.getElementById("username").value;
-    var password=document.getElementById("password").value;
-    var passwordconfirm=document.getElementById("passwordconfirm").value;
-    var phonenumber=document.getElementById("phonenumber").value;
-    var re = /^\d+(?=\.{0,1}\d+$|$)/;
-    while(1){
+        c.onclick = function signup() {
 
-      var flag = 0;
-      if(username!==""&&password!==""&&passwordconfirm!==""&&phonenumber!==""){
-        if(username.length<4||username.length>10){
-          alert("用户名格式错误,请重新输入！");
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var passwordconfirm = document.getElementById("passwordconfirm").value;
+            var phonenumber = document.getElementById("phonenumber").value;
+            var re = /^\d+(?=\.{0,1}\d+$|$)/;
+            while (1) {
 
-          document.getElementById("username").value="";
-          document.getElementById("username").focus();
-          flag++;
-          break;
+                var flag = 0;
+                if (username !== "" && password !== "" && passwordconfirm !== "" && phonenumber !== "") {
+                    if (username.length < 4 || username.length > 10) {
+                        alert("用户名格式错误,请重新输入！");
+
+                        document.getElementById("username").value = "";
+                        document.getElementById("username").focus();
+                        flag++;
+                        break;
+                    }
+                    if (password.length < 8 || password.length > 16) {
+                        alert("密码长度不符合要求！请重新输入！");
+                        flag++;
+                        break;
+                    }
+                    if (password !== passwordconfirm) {
+                        alert("两次密码不同！请重新输入！");
+
+                        flag++;
+
+                        break;
+                    }
+                    if (phonenumber.length != 11) {
+                        alert("手机号不正确，请重新输入！");
+                        document.getElementById("phonenumber").value = "";
+                        document.getElementById("phonenumber").focus();
+                        flag++;
+                        break;
+                    }
+                    if (!re.test(phonenumber)) {
+                        alert("输入不是数字,请重新输入！");
+                        document.getElementById("phonenumber").value = "";
+                        document.getElementById("phonenumber").focus();
+                        flag++;
+                        break;
+                    }
+                    if (flag == 0) {
+                        break;
+                    }
+                } else {
+                    if (username == "" || password == "" || passwordconfirm == "" || phonenumber == "") {
+                        alert("请填写完整信息！");
+
+                        flag = 1;
+                        break;
+                    }
+                }
+            }
+            if (flag == 0) {
+                alert("所有信息正确！");
+                alert("请核对您的信息\n" + "用户名：" + username + "\n密码：" + password + "\n手机号:" + phonenumber);
+
+            } else {
+                alert("请检查您的信息，重新输入！");
+                return false;
+            }
         }
-        if(password.length<8||password.length>16){
-          alert("密码长度不符合要求！请重新输入！");
-          flag++;
-          break;
-        }
-        if(password!==passwordconfirm){
-          alert("两次密码不同！请重新输入！");
+        var box = document.getElementById("boxbox");
 
-          flag++;
-
-          break;
+        //闭包 定时器
+        function delay(msg, time) {
+            setTimeout(function() {
+                // alert(msg);用于调参
+                box.style.margin = "0 auto";
+            }, time);
         }
-        if(phonenumber.length!=11){
-          alert("手机号不正确，请重新输入！");
-          document.getElementById("phonenumber").value="";
-          document.getElementById("phonenumber").focus();
-          flag++;
-          break;
-        }
-        if(!re.test(phonenumber)){
-          alert("输入不是数字,请重新输入！");
-          document.getElementById("phonenumber").value="";
-          document.getElementById("phonenumber").focus();
-          flag++;
-          break;
-        }
-        if(flag==0){
-          break;
-        }
-      }else{
-        if(username==""||password==""||passwordconfirm==""||phonenumber=="")
-        {
-          alert("请填写完整信息！");
-
-          flag=1;
-          break;
-        }
-      }
-    }
-    if(flag==0){
-      alert("所有信息正确！");
-      alert("请核对您的信息\n"+"用户名："+username+"\n密码："+password+"\n手机号:"+phonenumber);
-
-    }else{
-      alert("请检查您的信息，重新输入！");
-      return false;
-    }
-  }
-
-</script>
+        delay('time out', 2500);
+    </script>
 </body>
+
 </html>
