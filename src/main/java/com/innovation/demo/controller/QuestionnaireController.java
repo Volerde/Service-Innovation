@@ -5,14 +5,10 @@ import com.innovation.demo.pojo.Questionnaire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import java.util.Date;
 
-
-/**
- * @author 张以恒
- * @create 2021/5/5-15:26
- **/
 @Controller
 public class QuestionnaireController {
 
