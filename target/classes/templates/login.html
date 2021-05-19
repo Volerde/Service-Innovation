@@ -213,7 +213,6 @@
         </div>
     </div>
     <div class="box" id="boxbox" @click='appear'>
-        <!-- <img src="images/top1.jpg" alt=""> -->
         <div class="top">
             <div class="tou"></div>
         </div>
@@ -221,27 +220,24 @@
         <div class="bottom">
             <form th:action="@{/userlogin}">
                 <div style="margin: 20px 0 0 0;">
-                    <p id="function" align="center" style="color: red;" th:text="${session.msglogin}"></p>
+                    <p align="center" style="color: red;" th:text="${session.msglogin}"></p>
                 </div>
 
                 <div class="zhang" style="margin-left: 75px;">
-<!--                     <div class="zhanghao">账&nbsp号:</div>-->
                     <input type="text" name="yong" id="yong" required="required" placeholder="用户名">
-<!--                    <input type="text" name="yong" id="yong" required="required" placeholder="QQ/微信/用户名">-->
                 </div>
+
                 <br>
 
                 <div class="mi" style="margin-left: 75px;">
-                    <!-- <div class="mima">密&nbsp码:</div> -->
                     <input type="password" name="mima" id="mima" required="required" placeholder="8-16位有效字符">
                 </div>
 
                 <button type="submit">登&nbsp录</button>
             </form>
 
-            <a th:href="@{/signup.html}" rel="noopener noreferrer" id="new" style="color: lightgray;">注册账号</a>
-            <a href="https://" target="_blank" rel="noopener noreferrer" id="reset" style="color: lightgray;">忘记密码</a>
-            <!-- <input type="submit" value="登录"> -->
+            <a th:href="@{/signup.html}" rel="noopener noreferrer" id="new" style="color: lightgray;margin-bottom: 10px">注册账号</a>
+            <a th:href="@{/resetPwd.html}"rel="noopener noreferrer" id="reset" style="color: lightgray;margin-bottom: 10px">忘记密码</a>
 
         </div>
     </div>

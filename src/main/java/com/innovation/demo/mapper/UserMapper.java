@@ -15,4 +15,9 @@ public interface UserMapper {
     @Select("select id,username,password,phonenumber from usermanager where username=#{username}")
     User selectUser(String username);
 
+    @Select("select id,username,password,phonenumber from usermanager where phonenumber=#{phonenumber}")
+    User selectUserByPhonenumber(String phonenumber);
+
+    @Select("update usermanager set password= #{password} where phonenumber=#{phonenumber}")
+    User resetPassword(String password,String phonenumber);
 }

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码重置</title>
+    <link href="css/base.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!---css--->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!---js--->
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <!---js--->
+    <!--JS for animate-->
+    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+
+    <!---webfont--->
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!---webfont--->
+    <link rel="stylesheet" type="text/css" href="css/style_common.css" />
+    <link rel="stylesheet" type="text/css" href="css/style9.css" />
+    <style>
+        body {
+            /* display: flex; */
+            /* position: absolute; */
+            background: #fff url(images/bg9.png) no-repeat fixed center;
+            background-size: cover;
+        }
+        
+        #one{
+            padding: 1%;
+            margin: 10% auto;
+            width: 25%;
+            height: 20%;
+            background-color: #fff;
+        }
+        
+        * {
+            position: relative;
+        }
+        
+        #one input{
+            padding: 1em;
+            margin: 10%;
+            display: block;
+            outline: none;
+            border: rgb(191, 187, 194) solid 1px;
+            background-color: rgba(0, 0, 0, 0);
+            width: 85%;
+            height: 1.85vw;
+        }
+        
+        #one .tit{
+            margin: 5% auto;
+            width: auto;
+            height: 10%;
+            font-size: 2.5rem;
+            line-height: 10%;
+            color: rgb(68, 194, 164);
+        }
+        
+        input::placeholder {
+            color: rgb(191, 187, 194);
+        }
+        
+        #one button{
+            display: block;
+            width: 25%;
+            height: 10%;
+            font-size: 1.556rem;
+            background-color: rgb(68, 194, 164);
+            color: ivory;
+            border: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--顶部标题 -->
+    <div class="header-section">
+        <div class="container">
+            <div class="head-bottom">
+                <div class="logo  wow fadeInDownBig animated animated" data-wow-delay="0.4s">
+                    <img src="images/logo.png" alt="" width="70px ">
+                    <h1><a href="index.html">桃花源<span> &nbsp;相约另一种美好</span></a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="one" align="center">
+        <div class="tit">
+            Get Back Password
+        </div>
+        <form th:action="@{/resetPassword}">
+            <div>
+                <p id="check" style="color: red;" th:text="${session.msgResetPwd}"></p>
+                <input name="username" type="text" placeholder="请输入用户名">
+                <input id="phone" name="phonenumber" type="text" placeholder="请输入手机号">
+                <input name="password" type="text" placeholder="请输入密码">
+            </div>
+
+            <div align="center">
+                <button id="sure" type="submit">重置密码</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+        var c = document.getElementById("sure");
+        c.onclick = function sure() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var phone = document.getElementById("phone").value;
+            var re = /^\d+(?=\.{0,1}\d+$|$)/;
+            alert("test")
+            while (1) {
+
+                var flag = 0;
+                if (username !== "" && password !== "" && phone !== "") {
+                    if (username.length < 4 || username.length > 10) {
+                        alert("用户名格式错误,请重新输入！");
+
+                        document.getElementById("username").value = "";
+                        document.getElementById("username").focus();
+                        flag++;
+                        break;
+                    }
+                    if (password.length < 8 || password.length > 16) {
+                        alert("密码长度不符合要求！请重新输入！");
+                        flag++;
+                        break;
+                    }
+                    if (phone.length != 11) {
+                        alert("手机号不正确，请重新输入！");
+                        document.getElementById("phone").value = "";
+                        document.getElementById("phone").focus();
+                        flag++;
+                        break;
+                    }
+                    if (!re.test(phone)) {
+                        alert("输入不是数字,请重新输入！");
+                        document.getElementById("phone").value = "";
+                        document.getElementById("phone").focus();
+                        flag++;
+                        break;
+                    }
+                    if (flag == 0) {
+                        break;
+                    }
+                } else {
+                    if (username == "" || password == "" || phone == "") {
+                        alert("请填写完整信息！");
+
+                        flag = 1;
+                        break;
+                    }
+                }
+            }
+            if (flag == 0) {
+                alert("所有信息正确！");
+                alert("请核对您的信息\n" +"\n用户名："+username +"\n密码：" + password + "\n手机号:" + phone);
+
+            } else {
+                alert("请检查您的信息，重新输入！");
+                return false;
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

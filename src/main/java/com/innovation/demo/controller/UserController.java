@@ -1,17 +1,13 @@
 package com.innovation.demo.controller;
 
+import com.fasterxml.jackson.databind.DatabindContext;
 import com.innovation.demo.mapper.UserMapper;
 import com.innovation.demo.pojo.User;
-import com.sun.org.apache.xml.internal.security.utils.JavaUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.thymeleaf.util.StringUtils;
-
 import javax.servlet.http.HttpSession;
-import java.util.Collection;
 import java.util.Objects;
 
 @Controller
@@ -21,7 +17,6 @@ public class UserController {
     private UserMapper userMapper;
 
     //注册功能
-    //施工ing：前端验证部分
     @RequestMapping("/register")
     public String register(@RequestParam("username")String username, @RequestParam("password") String password, @RequestParam("phonenumber") String phonenumber,HttpSession session){
         User user = userMapper.selectUser(username);
@@ -38,23 +33,29 @@ public class UserController {
     }
 
 
-
-
     //登录功能
     @RequestMapping("/userlogin")
-    public String login(@RequestParam("yong") String yong,@RequestParam("mima") String mima,HttpSession session) {
+    public String login(@RequestParam("yong") String yong, @RequestParam("mima") String mima, HttpSession session) {
         User user = userMapper.selectUser(yong);
-        if (user==null){
-            session.setAttribute("msglogin","登录失败，该用户不存在");
+        if (user==null|| !Objects.equals(mima, user.getPassword())){
+            session.setAttribute("msglogin","用户名或密码错误");
             return "redirect:/login.html";
-        }
-
-        if (Objects.equals(mima,user.getPassword())){
-            session.setAttribute("loginUser",yong);
-            return "redirect:/index";
         }else {
-            session.setAttribute("msglogin","登录失败，密码错误");
+            session.setAttribute("loginUser", yong);
+            return "redirect:/index.html";
+        }
+    }
+    //忘记密码功能
+    @RequestMapping("/resetPassword")
+    public String resetPwd(@RequestParam("phonenumber") String phonenumber, @RequestParam("username")String username,@RequestParam("password") String password, HttpSession session) {
+        User user = userMapper.selectUserByPhonenumber(phonenumber);
+        if (user == null) {
+            session.setAttribute("msgResetPwd", "找回失败，此手机号未进行注册");
+            return "redirect:/resetPwd.html";
+        } else{
+            userMapper.resetPassword(password,phonenumber);
             return "redirect:/login.html";
         }
     }
 }
+
