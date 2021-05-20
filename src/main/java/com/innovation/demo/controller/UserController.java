@@ -1,13 +1,12 @@
 package com.innovation.demo.controller;
 
-import com.fasterxml.jackson.databind.DatabindContext;
 import com.innovation.demo.mapper.UserMapper;
 import com.innovation.demo.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Objects;
 
 @Controller
@@ -18,44 +17,46 @@ public class UserController {
 
     //注册功能
     @RequestMapping("/register")
-    public String register(@RequestParam("username")String username, @RequestParam("password") String password, @RequestParam("phonenumber") String phonenumber,HttpSession session){
+    @ResponseBody
+    public String register(@RequestParam("username")String username, @RequestParam("password") String password, @RequestParam("phonenumber") String phonenumber){
         User user = userMapper.selectUser(username);
+        String msgRegister = "";
         if (user!=null){
-            session.setAttribute("msgregister","注册失败，该用户已存在");
-            return "redirect:/signup.html";
+            msgRegister ="false";//注册失败，用户已存在，返回false
+        }else if (userMapper.saveUser(username, password, phonenumber)==1){
+            msgRegister = "true";//注册成功，返回true
         }
-
-        if (userMapper.saveUser(username, password, phonenumber)==0){
-            return "/signup";
-        } else {
-        return "redirect:/login.html";
-        }
+        return msgRegister;
     }
-
 
     //登录功能
     @RequestMapping("/userlogin")
-    public String login(@RequestParam("yong") String yong, @RequestParam("mima") String mima, HttpSession session) {
+    @ResponseBody
+    public String[] login(@RequestParam("yong") String yong, @RequestParam("mima") String mima) {
         User user = userMapper.selectUser(yong);
+        String[] msg = {"",""};
         if (user==null|| !Objects.equals(mima, user.getPassword())){
-            session.setAttribute("msglogin","用户名或密码错误");
-            return "redirect:/login.html";
+            msg[0] = "false";//登录失败，用户名或密码错误，返回false
         }else {
-            session.setAttribute("loginUser", yong);
-            return "redirect:/index.html";
+            msg[0] = "true";//登陆成功，返回true
+            msg[1] = yong;//yong即用户名，需要返回到index页面第84行的id为checkpoint的a标签中
         }
+        return msg;
     }
+    
     //忘记密码功能
     @RequestMapping("/resetPassword")
-    public String resetPwd(@RequestParam("phonenumber") String phonenumber, @RequestParam("username")String username,@RequestParam("password") String password, HttpSession session) {
+    @ResponseBody
+    public String resetPwd(@RequestParam("phonenumber") String phonenumber, @RequestParam("username")String username,@RequestParam("password") String password) {
         User user = userMapper.selectUserByPhonenumber(phonenumber);
+        String msgReset = "";
         if (user == null) {
-            session.setAttribute("msgResetPwd", "找回失败，此手机号未进行注册");
-            return "redirect:/resetPwd.html";
+            msgReset = "false";//找回失败，此手机号未进行注册,返回false
         } else{
             userMapper.resetPassword(password,phonenumber);
-            return "redirect:/login.html";
+            msgReset = "true";//密码修改成功，返回true;
         }
+        return msgReset;
     }
 }
 
