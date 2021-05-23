@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -117,9 +117,9 @@
         <form th:action="@{/resetPassword}">
             <div>
                 <p id="check" style="color: red;" th:text="${session.msgResetPwd}"></p>
-                <input name="username" type="text" placeholder="请输入用户名">
+                <input id="username" name="username" type="text" placeholder="请输入用户名">
                 <input id="phone" name="phonenumber" type="text" placeholder="请输入手机号">
-                <input name="password" type="text" placeholder="请输入密码">
+                <input id="password" name="password" type="text" placeholder="请输入密码">
             </div>
 
             <div align="center">
@@ -131,14 +131,13 @@
 
     <script>
         var c = document.getElementById("sure");
-        c.onclick = function sure() {
+        console.log(c)
+        c.onclick = function() {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
             var phone = document.getElementById("phone").value;
             var re = /^\d+(?=\.{0,1}\d+$|$)/;
-            alert("test")
             while (1) {
-
                 var flag = 0;
                 if (username !== "" && password !== "" && phone !== "") {
                     if (username.length < 4 || username.length > 10) {
