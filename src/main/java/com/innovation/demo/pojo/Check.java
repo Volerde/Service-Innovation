@@ -4,15 +4,33 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author Volerde
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class Check {
-    private Boolean msgLogin;//登录验证
-    private String name;//用户名
-    private Boolean msgRegister;//注册验证
-    private Boolean msgReset;//忘记密码验证
-    private String msg;//信息存储
+    /**
+     * 登录验证
+     */
+    private Boolean msgLogin;
+    /**
+     * 用户名
+     */
+    private String name;
+    /**
+     * 注册验证
+     */
+    private Boolean msgRegister;
+    /**
+     * 忘记密码验证
+     */
+    private Boolean msgReset;
+    /**
+     * 信息存储
+     */
+    private String msg;
 
 
 }

@@ -6,13 +6,15 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * @author 张以恒
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Questionnaire {
 
-    /*private long id;*/
-    private String  sex;
+    private String sex;
     private String age;
     private String job;
     private String salary;
