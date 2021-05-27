@@ -9,4 +9,8 @@
          VALUES (#{sex},#{age},#{job},#{salary},#{experience},#{activities},#{hoping},#{buy},#{types},#{know},#{spend},#{collection},#{advice},#{birth})
     </insert>
 
+    <select id="find_all" resultType="java.util.Map">
+        select *from service_innovation.questionnaire
+    </select>
+
 </mapper>

@@ -3,6 +3,7 @@ package com.innovation.demo.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.Date;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Questionnaire {
 
     private String sex;
@@ -29,23 +31,4 @@ public class Questionnaire {
     private String advice;
     private Date birth;
 
-    @Override
-    public String toString() {
-        return "Questionnaire{" +
-                "sex='" + sex + '\'' +
-                ", age='" + age + '\'' +
-                ", job='" + job + '\'' +
-                ", salary='" + salary + '\'' +
-                ", experience='" + experience + '\'' +
-                ", activities='" + activities + '\'' +
-                ", hoping='" + hoping + '\'' +
-                ", buy='" + buy + '\'' +
-                ", types='" + types + '\'' +
-                ", know='" + know + '\'' +
-                ", spend='" + spend + '\'' +
-                ", collection='" + collection + '\'' +
-                ", advice='" + advice + '\'' +
-                ", birth=" + birth +
-                '}';
-    }
 }
