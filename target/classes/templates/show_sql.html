@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire_Map</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        p {
+            font-family: 仿宋;
+            font-size: 60px;
+            color: #2b542c;
+        }
+
+        table {
+            display: block;
+        }
+
+        .header {
+            margin: 20px auto;
+            height: 50px;
+            width: auto;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        td {
+            width: 500px;
+            height: 100px;
+            font-family: 仿宋;
+            font-size: 20px;
+            text-align: center;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" cellspacing="0">
+        <div class="header">
+            <p>问卷调查数据表显示</p>
+        </div>
+        <tr>
+            <td>序号</td>
+            <td>性别</td>
+            <td>年龄</td>
+            <td>职业</td>
+            <td>月收入</td>
+            <td>是否有农家乐旅游或居住经历</td>
+            <td>一般参与的农家活动</td>
+            <td>是否希望退休后回归田园、拥有一块土地颐养晚年</td>
+            <td>以那种方式了解农产品的质量</td>
+            <td>倾向于体验哪种农家乐</td>
+            <td>通过哪种方式了解农家乐</td>
+            <td>单日消费金额</td>
+            <td>平时喜欢收集旅游照片或纪念品吗</td>
+            <td>需要提升的地方</td>
+            <td>填表时间</td>
+        </tr>
+        <tr th:each="questionnaire:${questionnaireList}">
+            <td th:text="${questionnaire.id}"></td>
+            <td th:text="${questionnaire.sex}"></td>
+            <td th:text="${questionnaire.age}"></td>
+            <td th:text="${questionnaire.job}"></td>
+            <td th:text="${questionnaire.salary}"></td>
+            <td th:text="${questionnaire.experience}"></td>
+            <td th:text="${questionnaire.activities}"></td>
+            <td th:text="${questionnaire.hoping}"></td>
+            <td th:text="${questionnaire.buy}"></td>
+            <td th:text="${questionnaire.types}"></td>
+            <td th:text="${questionnaire.know}"></td>
+            <td th:text="${questionnaire.spend}"></td>
+            <td th:text="${questionnaire.collection}"></td>
+            <td th:text="${questionnaire.advice}" style="width: 2000px"></td>
+            <td th:text="${questionnaire.birth}"></td>
+        </tr>
+    </table>
+</body>
+</html>
