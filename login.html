@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录/注册</title>
+    <link href="css/base.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!---css--->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!---js--->
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <!---js--->
+    <!--JS for animate-->
+    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+
+    <!---webfont--->
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!---webfont--->
+    <link rel="stylesheet" type="text/css" href="css/style_common.css" />
+    <link rel="stylesheet" type="text/css" href="css/style9.css" />
+
+    <!-- 特效 -->
+    <!-- <link rel="stylesheet" href="./test/css/style.css"> -->
+    <!-- <link rel="stylesheet" href="./test/css/base.css"> -->
+    <!-- <link rel="stylesheet" href="./test/css/login.css" /> -->
+    <!-- <link rel="stylesheet" href="./test/css/sweetalert2.min.css" /> -->
+
+
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?zhlo66');
+            src: url('fonts/icomoon.eot?zhlo66#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?zhlo66') format('truetype'), url('fonts/icomoon.woff?zhlo66') format('woff'), url('fonts/icomoon.svg?zhlo66#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+        
+        body {
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            position: relative;
+            background: #fff url(images/bg9.png) no-repeat fixed center;
+            background-size: cover;
+        }
+        
+        .box {
+            padding-top: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* margin: 100px auto; */
+            width: 450px;
+            height: 350px;
+            /* border: 1px solid #fff; */
+            /* background-color: rgba(149, 148, 145, 0.274); */
+            background-color: #fff;
+            /* border-radius: 50%; */
+            box-shadow: #a5bfb1 6px 10px 12px;
+        }
+        
+        .top {
+            width: 100%;
+            height: 20%;
+            /* border-bottom: 2px solid #fff; */
+        }
+        
+        .zhang,
+        .mi {
+            border-bottom: 1px solid rgb(141, 128, 128);
+            width: 300px;
+            height: 42px;
+            margin-top: 10px;
+        }
+        
+        .box .mi {
+            margin-top: 0px;
+        }
+        
+        input::placeholder {
+            color: lightgray;
+        }
+        
+        div input {
+            /* margin-left: 15px; */
+            width: 250px;
+            height: 30px;
+            display: inline-block;
+            /* border: 1px solid rgb(141, 128, 128); */
+            border: none;
+            outline: medium;
+            padding-left: 1em;
+            /* background-color: none; */
+            /* background-color: (637, 9, 3, 0.3); */
+            /* background-color: rgba(73, 125, 170, 0.274); */
+        }
+        
+        button {
+            display: inline-block;
+            /* align-items: center; */
+            margin: 20px 178px;
+            background-color: rgb(68, 194, 164);
+            border: none;
+            border-radius: 5px;
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+            line-height: 20px;
+            color: lightcyan;
+        }
+        
+        button:hover {
+            text-shadow: bisque 1px 2px 3px;
+        }
+        
+        .box #new {
+            float: left;
+            margin-left: 10px;
+        }
+        
+        .box #reset {
+            float: right;
+            margin-right: 10px;
+        }
+        
+        .box #new,
+        .box #reset {
+            display: inline-block;
+            line-height: 15px;
+            font-size: 15px;
+        }
+        
+        .top .tou {
+            /* display: inline-block; */
+            background: url(images/g4.jpg) no-repeat center 0;
+            margin: 45px auto;
+            width: 90px;
+            height: 90px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+        }
+        
+        .box #new:hover,
+        .box #reset:hover {
+            color: rgb(214, 131, 29);
+        }
+        
+        .box img {
+            width: 100%;
+            height: 200px;
+        }
+        
+        span {
+            display: inline-block;
+            font-family: 'icomoon';
+            font-size: 25px;
+            margin-left: 10px;
+        }
+        
+        @keyframes move {
+            /* 开始的状态 */
+            0% {
+                transform: translatey(500px);
+            }
+            /* 结束的状态 */
+            100% {
+                transform: translateY(auto);
+            }
+            /* from to 等价于0%和100% */
+            /* 动画序列 */
+            /* 1.@keyframes {0% 25% 75% 100%} 可以做多个状态变化 关键帧 */
+            /* 2. 里面的百分比必须是整数 */
+            /* 3.百分比就是持续时间的划分 */
+        }
+        
+        .box {
+            display: block;
+            /* transform: ; */
+            /* transform: translateY(100px); */
+            /* transition: all ease .5s 2s; */
+            animation-name: move;
+            /* 定义动画持续时间 */
+            animation-duration: 2s;
+        }
+        /* #particles-js {
+            position: absolute;
+        }
+        
+        .box {
+            position: relative;
+        } */
+    </style>
+</head>
+
+<body>
+
+
+    <!---header--->
+    <div class="header-section">
+        <div class="container">
+            <div class="head-bottom">
+                <div class="logo  wow fadeInDownBig animated animated" data-wow-delay="0.4s">
+                    <img src="images/logo.png" alt="" width="70px ">
+                    <h1><a href="index.html">桃花源<span> &nbsp;相约另一种美好</span></a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="particles-js"></div>
+    <div class="box" id="boxbox" @click='appear'>
+
+        <div class="top">
+            <div class="tou"></div>
+        </div>
+
+        <div class="bottom">
+            <form th:action="@{/userlogin}">
+                <div style="margin: 20px 0 0 0;">
+                    <p align="center" style="color: red;" th:text="${session.msglogin}"></p>
+                </div>
+
+                <div class="zhang" style="margin-left: 75px;">
+                    <input type="text" name="yong" id="yong" required="required" placeholder="用户名">
+                </div>
+
+                <br>
+
+                <div class="mi" style="margin-left: 75px;">
+                    <input type="password" name="mima" id="mima" required="required" placeholder="8-16位有效字符">
+                </div>
+
+                <button type="submit">登&nbsp录</button>
+            </form>
+
+            <a th:href="@{/signup.html}" rel="noopener noreferrer" id="new" style="color: lightgray;margin-bottom: 10px">注册账号</a>
+            <a th:href="@{/resetPwd.html}" rel="noopener noreferrer" id="reset" style="color: lightgray;margin-bottom: 10px">忘记密码</a>
+
+        </div>
+    </div>
+
+
+</body>
+<script src="./test/js/particles.min.js"></script>
+<script src="./test/js/jquery.min.js"></script>
+<!-- <script src="../网页样图/test/js/sweetalert2.min.js"></script> -->
+<script src="./test/js/app.js"></script>
+
+</html>
