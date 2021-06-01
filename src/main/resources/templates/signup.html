@@ -109,6 +109,8 @@
             border-radius: 5px;
             color: rgba(255, 255, 255, 0.767);
             background-color: rgb(23, 194, 164, 0.85);
+            text-align: center;
+            line-height: 30px;
         }
         
         input::placeholder {
@@ -132,7 +134,7 @@
     </div>
     <!-- 注册框架 -->
     <div class="box" id="boxbox">
-        <form th:action="@{/register}">
+        <form >
             <div align="center">
                 <table width="47%" border="0">
                     <tr>
@@ -189,7 +191,7 @@
                     <tr>
                         <td style="display: block;">
                             <div style="width: 100%;height: 30px;">
-                                <button class="signup" type="submit" id="signup">注&nbsp册</button>
+                                <div class="signup" type="submit" id="signup">注&nbsp册</div>
 
                                 <button style="
                                 display:block;float: left;border: none;background-color: rgba(255, 255, 255, 0.267);font-size: 17px;margin-bottom: 5px;">

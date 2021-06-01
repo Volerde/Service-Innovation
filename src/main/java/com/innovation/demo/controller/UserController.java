@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
 /**
@@ -55,7 +56,7 @@ public class UserController {
      */
     @RequestMapping("/userlogin")
     @ResponseBody
-    public Check login(@RequestParam("yong") String yong, @RequestParam("mima") String mima) {
+    public Check login(@RequestParam("yong") String yong, @RequestParam("mima") String mima, HttpSession session) {
         User user = userMapper.selectUser(yong);
         Check check = new Check();
         if (user == null || !Objects.equals(mima, user.getPassword())) {
@@ -65,6 +66,7 @@ public class UserController {
         } else {
             //登陆成功，返回true
             check.setMsgLogin(true);
+            session.setAttribute("loginUser",yong);
             //yong即用户名，需要返回到index页面第84行的id为checkpoint的a标签中
             check.setName(yong);
         }

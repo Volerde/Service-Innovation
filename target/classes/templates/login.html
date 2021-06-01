@@ -34,12 +34,12 @@
     </script>
     <!--//end-animate-->
 
-    <!---webfont--->
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-    <!---webfont--->
+
     <link rel="stylesheet" type="text/css" href="css/style_common.css" />
     <link rel="stylesheet" type="text/css" href="css/style9.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!--    <script th:src="@{/js/axios.js}"></script>-->
 
     <style>
         @font-face {
@@ -61,13 +61,14 @@
         }
         
         .box {
+            padding-top: 10px;
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, 50%);
+            transform: translate(-50%, -50%);
             /* margin: 100px auto; */
             width: 450px;
-            height: auto;
+            height: 350px;
             /* border: 1px solid #fff; */
             /* background-color: rgba(149, 148, 145, 0.274); */
             background-color: #fff;
@@ -111,7 +112,7 @@
             /* background-color: rgba(73, 125, 170, 0.274); */
         }
         
-        button {
+        .button {
             display: inline-block;
             /* align-items: center; */
             margin: 20px 178px;
@@ -120,12 +121,14 @@
             border-radius: 5px;
             width: 100px;
             height: 30px;
-            font-size: 20px;
-            line-height: 20px;
+            font-size: 23px;
+            line-height: 26px;
             color: lightcyan;
+            align: center;
+            padding-left: 25px;
         }
         
-        button:hover {
+        .button:hover {
             text-shadow: bisque 1px 2px 3px;
         }
         
@@ -212,14 +215,15 @@
             </div>
         </div>
     </div>
+    <div id="particles-js"></div>
     <div class="box" id="boxbox" @click='appear'>
         <div class="top">
             <div class="tou"></div>
         </div>
 
         <div class="bottom">
-            <form th:action="@{/userlogin}">
-                <div style="margin: 20px 0 0 0;">
+          <form >
+                <div style="margin: 30px 0 0 0;">
                     <p align="center" style="color: red;" th:text="${session.msglogin}"></p>
                 </div>
 
@@ -233,7 +237,7 @@
                     <input type="password" name="mima" id="mima" required="required" placeholder="8-16位有效字符">
                 </div>
 
-                <button type="submit">登&nbsp录</button>
+                <div id="denglu" class="button">登&nbsp录</div>
             </form>
 
             <a th:href="@{/signup.html}" rel="noopener noreferrer" id="new" style="color: lightgray;margin-bottom: 10px">注册账号</a>
@@ -242,6 +246,37 @@
         </div>
     </div>
     <script th:src="@{https://cdn.jsdelivr.net/npm/vue/dist/vue.js}"></script>
+    <script>
+        var deng=document.querySelector('#denglu');
+        //var deng=document.getElementById("#denglu");
+
+       deng.onclick = function() {
+           var yong=document.querySelector("#yong").value;
+           var password=document.querySelector('#mima').value;
+         //  alert('1');
+           axios({
+               method: 'get',
+               url: '/userlogin'+"?"+"yong="+yong+"&mima="+password,
+           }).then(Response => {
+               console.log(Response);
+              if(Response.data.msgLogin)
+              {
+                  location.assign("index.html")
+              }
+              else {
+                  alert("用户名或密码错误");
+              }
+           })
+           console.log(' 2222');
+
+           return false;
+       };
+
+    </script>
+    <script th:src="@{/js/particles.min.js}"></script>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <!-- <script src="../网页样图/test/js/sweetalert2.min.js"></script> -->
+    <script th:src="@{/js/app.js}"></script>
 </body>
 
 </html>
